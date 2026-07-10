@@ -191,60 +191,59 @@ def haal_rechtspraak() -> list:
 # --------------------------------------------------------------------------
 def haal_eurlex() -> list:
     """
-    Recente EU-rechtspraak over gegevensbescherming via de publieke
-    SPARQL-endpoint van Publications Office (CELLAR). Geen account nodig.
+    Recente EU-rechtspraak over gegevensbescherming via DPcuria.eu.
+    Leest de lijst "Latest preliminary rulings" van de homepage.
+    Stabiele, voorspelbare links per zaak; geen CELEX-gepuzzel.
     """
     items = []
-    grens = _grens().strftime("%Y-%m-%d")
-    # Arresten/conclusies (sector 6 = case-law) met een datum vanaf de grens,
-    # waarvan de titel een van de kernbegrippen bevat.
-    query = f"""
-    PREFIX cdm: <http://publications.europa.eu/ontology/cdm#>
-    PREFIX dc: <http://purl.org/dc/elements/1.1/>
-    SELECT DISTINCT ?work ?title ?date WHERE {{
-      ?work cdm:work_date_document ?date .
-      ?work cdm:work_is_about_concept_eurovoc ?eurovoc .
-      ?expr cdm:expression_belongs_to_work ?work .
-      ?expr cdm:expression_uses_language <http://publications.europa.eu/resource/authority/language/NLD> .
-      ?expr cdm:expression_title ?title .
-      FILTER(?date >= "{grens}"^^<http://www.w3.org/2001/XMLSchema#date>)
-      FILTER(CONTAINS(LCASE(STR(?title)), "persoonsgegevens")
-          || CONTAINS(LCASE(STR(?title)), "gegevensbescherming")
-          || CONTAINS(LCASE(STR(?title)), "verordening 2016/679"))
-    }} ORDER BY DESC(?date) LIMIT {config.EURLEX_MAX_ITEMS}
-    """
+    grens = _grens()
+    maanden = {"jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+               "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12}
     try:
-        resp = requests.get(
-            config.EURLEX_SPARQL_URL,
-            params={"query": query, "format": "application/sparql-results+json"},
-            headers=HEADERS,
-            timeout=TIMEOUT,
-        )
+        resp = requests.get(config.DPCURIA_URL, headers=HEADERS, timeout=TIMEOUT)
         resp.raise_for_status()
-        data = resp.json()
+        pagina = resp.text
     except Exception as e:
-        print(f"  [waarschuwing] EUR-Lex SPARQL niet bereikbaar: {e}")
+        print(f"  [waarschuwing] DPcuria.eu niet bereikbaar: {e}")
         return items
 
-    for row in data.get("results", {}).get("bindings", []):
-        titel = row.get("title", {}).get("value", "").strip()
-        work = row.get("work", {}).get("value", "")
-        datum_str = row.get("date", {}).get("value", "")
+    # Knip de sectie "Latest preliminary rulings" uit (tot het volgende kopje).
+    start = re.search(r"Latest preliminary rulings", pagina, re.I)
+    if not start:
+        print("  [waarschuwing] DPcuria: sectie 'preliminary rulings' niet gevonden.")
+        return items
+    rest = pagina[start.end():]
+    volgende = re.search(r"<h[12][ >]", rest, re.I)
+    sectie = rest[:volgende.start()] if volgende else rest
+
+    # Regel: "20 Nov 2025 : <a href="...">C-57/23</a> (<i>Naam</i>)"
+    rij = re.compile(
+        r"(\d{1,2})\s+([A-Za-z]{3})\s+(\d{4})\s*:\s*"
+        r'<a[^>]*href="([^"]+)"[^>]*>([^<]+)</a>'
+        r"\s*\(<[^>]+>([^<]+)<",
+        re.I,
+    )
+    for m in rij.finditer(sectie):
+        dag, mnd, jaar, url, ref, naam = m.groups()
         try:
-            datum = datetime.strptime(datum_str, "%Y-%m-%d").replace(tzinfo=timezone.utc)
-        except ValueError:
-            datum = _grens()
-        # Van work-URI een leesbare EUR-Lex-link maken.
-        celex = work.rstrip("/").split("/")[-1]
-        url = f"https://eur-lex.europa.eu/legal-content/NL/TXT/?uri=CELEX:{celex}"
+            datum = datetime(int(jaar), maanden[mnd.lower()], int(dag), tzinfo=timezone.utc)
+        except (ValueError, KeyError):
+            continue
+        if not config.EURLEX_NEGEER_DATUM and datum < grens:
+            continue
+        if url.startswith("/"):
+            url = "https://www.dpcuria.eu" + url
+        naam = html.unescape(naam.strip())
         items.append({
-            "bron": "HvJ-EU (via EUR-Lex)",
+            "bron": "HvJ-EU (via DPcuria)",
             "categorie": "Jurisprudentie (EU)",
-            "titel": _schoon(titel, 200),
-            "samenvatting": "Recente EU-uitspraak of conclusie over gegevensbescherming. Klik door voor de volledige tekst.",
+            "titel": f"{ref.strip()} — {naam}",
+            "samenvatting": "Uitspraak van het Hof van Justitie van de EU over gegevensbescherming. Klik door voor de volledige analyse en de link naar het arrest.",
             "url": url,
             "datum": datum,
         })
+        if len(items) >= config.EURLEX_MAX_ITEMS:
+            break
     return items
 
 
