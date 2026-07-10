@@ -15,10 +15,11 @@ MAANDEN = ["", "januari", "februari", "maart", "april", "mei", "juni",
 CATEGORIE_VOLGORDE = [
     "Toezichthouder (NL)",
     "Toezichthouder (EU)",
+    "Expertisecentrum",
+    "Nieuwswebsite",
     "Jurisprudentie (NL)",
     "Jurisprudentie (EU)",
 ]
-
 
 def _nl_datum(dt: datetime) -> str:
     return f"{dt.day} {MAANDEN[dt.month]} {dt.year}"
@@ -39,7 +40,9 @@ def bouw_html(items: list) -> str:
 
     # Bouw de secties.
     secties_html = []
-    for categorie in CATEGORIE_VOLGORDE:
+    # Bekende categorieën eerst, in vaste volgorde; daarna nieuwe automatisch erachter.
+    overige = [c for c in per_categorie if c not in CATEGORIE_VOLGORDE]
+    for categorie in CATEGORIE_VOLGORDE + overige:
         groep = per_categorie.get(categorie, [])
         if not groep:
             continue
