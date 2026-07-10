@@ -16,7 +16,7 @@ CATEGORIE_VOLGORDE = [
     "Toezichthouder (NL)",
     "Toezichthouder (EU)",
     "Expertisecentrum",
-    "Nieuwswebsite",
+    "Nieuwswebsites",
     "Jurisprudentie (NL)",
     "Jurisprudentie (EU)",
 ]
