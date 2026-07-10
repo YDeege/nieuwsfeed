@@ -80,6 +80,18 @@ def haal_rss(bron: dict) -> list:
         return items
 
     for entry in feed.entries:
+        datum = _struct_naar_dt(    
+            getattr(entry, "published_parsed", None)
+            or getattr(entry, "updated_parsed", None)
+            or getattr(entry, "created_parsed", None)
+            or getattr(entry, "expired_parsed", None)
+
+        )
+        # Fallback: gebruik huidige tijd zodat item niet verloren gaat
+        if datum is None:
+            datum = _nu_utc()
+        if datum < grens:
+            continue     
         datum = _struct_naar_dt(
             getattr(entry, "published_parsed", None)
             or getattr(entry, "updated_parsed", None)
