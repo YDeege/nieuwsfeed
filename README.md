@@ -1,7 +1,7 @@
-# Lumen Signaal — geautomatiseerde interne nieuwsbrief
+# [Intern] Signaal — geautomatiseerde interne nieuwsbrief
 
 Een gratis, zelfstandige pijplijn die wekelijks privacy- en informatiebeveiligingsnieuws
-verzamelt uit vier bronnen en er een nieuwsbrief in Lumen Group-huisstijl van maakt.
+verzamelt uit drie bronnen en er een nieuwsbrief in [Intern]-huisstijl van maakt.
 De nieuwsbrief wordt gepubliceerd als webpagina op GitHub Pages. Geen server, geen
 abonnement, geen mailkoppeling nodig.
 
@@ -21,7 +21,7 @@ link naar de bron. De opmaak volgt de huisstijl: accentkleur #292347, primaire k
 ## Eenmalige installatie
 
 1. Maak een gratis GitHub-account als je dat nog niet hebt.
-2. Maak een nieuwe repository, bijvoorbeeld `lumen-signaal`. Publiek mag, dan is Pages
+2. Maak een nieuwe repository, bijvoorbeeld `[intern]-signaal`. Publiek mag, dan is Pages
    sowieso gratis. Wil je hem privé, dan werkt Pages ook, mits de organisatie op een
    plan zit dat Pages voor private repos toestaat.
 3. Upload de inhoud van deze map naar de repository (behoud de mappenstructuur).
