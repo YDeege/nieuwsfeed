@@ -72,12 +72,16 @@ RECHTSPRAAK_CONTENT_URL = "https://data.rechtspraak.nl/uitspraken/content"
 # Maximaal aantal uitspraken dat we per week meenemen (na filtering).
 RECHTSPRAAK_MAX_ITEMS = 8
 
-# --- EUR-Lex (EU-jurisprudentie / HvJ-EU) --------------------------------
-# EUR-Lex biedt een publieke SPARQL-endpoint (CELLAR) waarmee je recente
-# rechtspraak kunt opvragen zonder account. We vragen arresten/conclusies op
-# van de afgelopen dagen die met gegevensbescherming te maken hebben.
-EURLEX_SPARQL_URL = "https://publications.europa.eu/webapi/rdf/sparql"
-EURLEX_MAX_ITEMS = 8
+# --- EU-jurisprudentie (HvJ-EU) via DPcuria.eu -------------------------
+# DPcuria.eu is een gespecialiseerde database met uitsluitend de
+# gegevensbeschermingsrechtspraak van het HvJ-EU. Stabiele links, geen
+# account nodig. We lezen de lijst "Latest preliminary rulings".
+DPCURIA_URL = "https://www.dpcuria.eu/"
+EURLEX_MAX_ITEMS = 6
+# HvJ-privacyuitspraken zijn zeldzaam; op 7 dagen filteren geeft meestal
+# een lege sectie. Zet op True om altijd de laatste uitspraken te tonen,
+# ongeacht datum. Zet op False voor strak filteren op DAGEN_TERUG.
+EURLEX_NEGEER_DATUM = True
 
 # --- Trefwoorden voor jurisprudentiefilter -------------------------------
 # Een uitspraak telt als relevant zodra één van deze termen voorkomt in de
