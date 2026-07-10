@@ -33,7 +33,7 @@ RSS_BRONNEN = [
         "filter_op_trefwoord": False,
     },
     {
-        "naam": "Nationaal Cuber Security Centrum",
+        "naam": "Nationaal Cyber Security Centrum",
         "categorie": "Expertisecentrum",
         "url": "https://feeds.ncsc.nl/nieuws.rss",
         "filter_op_trefwoord": False,
@@ -41,7 +41,7 @@ RSS_BRONNEN = [
     {
         "naam": "Security.nl Headlines",
         "categorie": "Nieuwswebsite",
-        "url": "https://feeds.ncsc.nl/nieuws.rss",
+        "url": "https://www.security.nl/rss/headlines.xml",
         "filter_op_trefwoord": True,
     },
     {
