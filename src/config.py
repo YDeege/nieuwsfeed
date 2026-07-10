@@ -86,10 +86,9 @@ EURLEX_MAX_ITEMS = 8
 TREFWOORDEN = [
     "avg", "gdpr", "persoonsgegevens", "privacy", "gegevensbescherming",
     "datalek", "data protection", "uavg", "verwerkingsverantwoordelijke",
-    "verwerker", "bijzondere persoonsgegevens", "profilering", "profiling",
-    "autoriteit persoonsgegevens", "bewaartermijn", "toestemming",
+    "verwerker", "bijzondere persoonsgegevens", "informatiebeveiliging", "information security",
+    "autoriteit persoonsgegevens", "bewaartermijn", "nis2", "cbw",
     "inzagerecht", "recht op vergetelheid", "nis2", "informatiebeveiliging",
-    "cameratoezicht", "biometrisch", "bsn",
 ]
 
 # --- Huisstijl Lumen Group ----------------------------------------------
