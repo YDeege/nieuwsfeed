@@ -81,7 +81,7 @@ EURLEX_MAX_ITEMS = 6
 # HvJ-privacyuitspraken zijn zeldzaam; op 7 dagen filteren geeft meestal
 # een lege sectie. Zet op True om altijd de laatste uitspraken te tonen,
 # ongeacht datum. Zet op False voor strak filteren op DAGEN_TERUG.
-EURLEX_NEGEER_DATUM = True
+EURLEX_NEGEER_DATUM = False
 
 # --- Trefwoorden voor jurisprudentiefilter -------------------------------
 # Een uitspraak telt als relevant zodra één van deze termen voorkomt in de
