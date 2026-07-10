@@ -1,5 +1,5 @@
 """
-Bouwt uit de verzamelde items een statische HTML-pagina in Lumen Group-huisstijl.
+Bouwt uit de verzamelde items een statische HTML-pagina in [Intern]-huisstijl.
 De pagina is bewust selfcontained (inline CSS) zodat GitHub Pages hem direct serveert.
 """
 
