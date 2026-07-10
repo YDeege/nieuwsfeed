@@ -40,7 +40,7 @@ RSS_BRONNEN = [
     },
     {
         "naam": "Security.nl Headlines",
-        "categorie": "Nieuwswebsite",
+        "categorie": "Nieuwswebsites",
         "url": "https://www.security.nl/rss/headlines.xml",
         "filter_op_trefwoord": True,
     },
@@ -52,7 +52,7 @@ RSS_BRONNEN = [
     },
     {
         "naam": "Privacynieuws.nl",
-        "categorie": "Nieuwswebsite",
+        "categorie": "Nieuwswebsites",
         "url": "https://privacynieuws.nl/?format=feed&type=rss",
         "filter_op_trefwoord": False,
     },
