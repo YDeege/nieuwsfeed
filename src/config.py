@@ -1,5 +1,5 @@
 """
-Configuratie voor de Lumen Group interne nieuwsbrief.
+Configuratie voor de [Intern] interne nieuwsbrief.
 Alle instelbare waarden staan hier bij elkaar, zodat je niets in de logica hoeft aan te passen.
 """
 
@@ -95,7 +95,7 @@ TREFWOORDEN = [
     "inzagerecht", "recht op vergetelheid", "nis2", "informatiebeveiliging",
 ]
 
-# --- Huisstijl Lumen Group ----------------------------------------------
+# --- Huisstijl [Intern] ----------------------------------------------
 HUISSTIJL = {
     "primair": "#d1d943",      # limegroen
     "accent": "#292347",       # donkerpaars/blauw
