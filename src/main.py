@@ -15,7 +15,7 @@ import renderer
 
 
 def main():
-    print("== [Intern] Signaal: nieuwsbrief samenstellen ==")
+    print("== IBP Update: nieuwsbrief samenstellen ==")
     items = collectors.verzamel_alles()
     print(f"Totaal {len(items)} relevante items gevonden.")
 
