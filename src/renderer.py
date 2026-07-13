@@ -189,7 +189,7 @@ def bouw_html(items: list) -> str:
 <body>
   <header class="hero">
     <div class="hero-inner">
-      <span class="merk">[Intern] · Intern</span>
+      <span class="merk">Privacy · Informatiebeveiliging</span>
       <h1>{_esc(config.NIEUWSBRIEF_TITEL)}<span class="accentstreep"></span></h1>
       <p class="sub">{_esc(config.NIEUWSBRIEF_SUBTITEL)}</p>
       <div class="uitgave">Versie {_nl_datum(nu)} · {aantal} {'berichten' if aantal != 1 else 'bericht'} uit de afgelopen {config.DAGEN_TERUG} dagen</div>
