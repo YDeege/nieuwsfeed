@@ -192,7 +192,7 @@ def bouw_html(items: list) -> str:
       <span class="merk">[Intern] · Intern</span>
       <h1>{_esc(config.NIEUWSBRIEF_TITEL)}<span class="accentstreep"></span></h1>
       <p class="sub">{_esc(config.NIEUWSBRIEF_SUBTITEL)}</p>
-      <div class="uitgave">Uitgave van {_nl_datum(nu)} · {aantal} {'signaleringen' if aantal != 1 else 'signalering'} uit de afgelopen {config.DAGEN_TERUG} dagen</div>
+      <div class="uitgave">Versie {_nl_datum(nu)} · {aantal} {'berichten' if aantal != 1 else 'bericht'} uit de afgelopen {config.DAGEN_TERUG} dagen</div>
     </div>
   </header>
 
@@ -200,8 +200,8 @@ def bouw_html(items: list) -> str:
     {body}
 
     <footer>
-      <p>Deze signalering is automatisch samengesteld uit openbare bronnen: de <strong>Autoriteit Persoonsgegevens</strong>, de <strong>European Data Protection Board</strong>, <strong>Rechtspraak.nl</strong> en <strong>EUR-Lex</strong> (HvJ-EU). Uitsluitend voor intern gebruik binnen [Intern].</p>
-      <p>Samenstelling gebeurt geautomatiseerd. Controleer bij twijfel altijd de oorspronkelijke bron voordat je een signalering met een klant deelt.</p>
+      <p>Deze signalering is automatisch samengesteld uit RSS-feeds van openbare bronnen, als de <strong>Autoriteit Persoonsgegevens</strong>, de <strong>European Data Protection Board</strong>, <strong> Nationaal Cyber Security Centrum</strong>, <strong>Privacynieuws.nl</strong>, <strong>Security.nl</strong>, <strong>Rechtspraak.nl</strong> en <strong>DPcuria.eu</strong> (HvJ-EU). Uitsluitend voor intern gebruik binnen [Intern].</p>
+      <p>Samenstelling gebeurt geautomatiseerd. Controleer altijd de oorspronkelijke bron.</p>
     </footer>
   </main>
 </body>
