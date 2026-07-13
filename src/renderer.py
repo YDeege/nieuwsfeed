@@ -200,7 +200,7 @@ def bouw_html(items: list) -> str:
     {body}
 
     <footer>
-      <p>Deze signalering is automatisch samengesteld uit RSS-feeds van openbare bronnen, als de <strong>Autoriteit Persoonsgegevens</strong>, de <strong>European Data Protection Board</strong>, <strong> Nationaal Cyber Security Centrum</strong>, <strong>Privacynieuws.nl</strong>, <strong>Security.nl</strong>, <strong>Rechtspraak.nl</strong> en <strong>DPcuria.eu</strong> (HvJ-EU). Uitsluitend voor intern gebruik binnen [Intern].</p>
+      <p>Deze signalering is automatisch samengesteld uit RSS-feeds van openbare bronnen, als de <strong>Autoriteit Persoonsgegevens</strong>, de <strong>European Data Protection Board</strong>, <strong> Nationaal Cyber Security Centrum</strong>, <strong>Privacynieuws.nl</strong>, <strong>Security.nl</strong>, <strong>Rechtspraak.nl</strong> en <strong>DPcuria.eu</strong> (HvJ-EU).</p>
       <p>Samenstelling gebeurt geautomatiseerd. Controleer altijd de oorspronkelijke bron.</p>
     </footer>
   </main>
