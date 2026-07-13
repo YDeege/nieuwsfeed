@@ -109,5 +109,5 @@ HUISSTIJL = {
 }
 
 # Titel en subtitel van de nieuwsbrief.
-NIEUWSBRIEF_TITEL = "[Intern] Signaal"
-NIEUWSBRIEF_SUBTITEL = "Wekelijkse signalering privacy, informatiebeveiliging en jurisprudentie"
+NIEUWSBRIEF_TITEL = "IBP Update"
+NIEUWSBRIEF_SUBTITEL = "Wekelijkse update met nieuws en jurisprudentie in privacy en informatiebeveiliging"
