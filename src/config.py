@@ -110,4 +110,4 @@ HUISSTIJL = {
 
 # Titel en subtitel van de nieuwsbrief.
 NIEUWSBRIEF_TITEL = "IBP Update"
-NIEUWSBRIEF_SUBTITEL = "Wekelijkse update met nieuws en jurisprudentie in privacy en informatiebeveiliging. Update elke maandag automatisch om 09:00 uur. Website wordt niet gearchiveerd, oude versies worden nergens opgeslagen."
+NIEUWSBRIEF_SUBTITEL = "Wekelijkse update met nieuws en jurisprudentie in privacy en informatiebeveiliging. Update elke maandag automatisch om 09:00 uur. Website wordt niet gearchiveerd, oude versies kunnen worden opgeslagen door de HTML-code lokaal op je pc-op te slaan (CTRL+S in de browser)."
