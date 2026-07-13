@@ -2,16 +2,16 @@ name: Wekelijkse nieuwsbrief
 
 # Draait elke maandag om 07:00 UTC (09:00 NL zomertijd / 08:00 wintertijd)
 # en is ook handmatig te starten via de knop "Run workflow".
-#on:
-  #schedule:
-    #- cron: "0 7 * * 1"
-  #workflow_dispatch:
-
-# Test: om de 5 minuten draaien
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "0 7 * * 1"
   workflow_dispatch:
+
+# Test: om de 5 minuten draaien
+#on:
+  #schedule:
+    #- cron: "*/5 * * * *"
+  #workflow_dispatch:
 
 
 # Rechten die GitHub Pages nodig heeft.
