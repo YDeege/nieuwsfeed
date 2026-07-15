@@ -5,8 +5,8 @@ name: Wekelijkse nieuwsbrief
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/5 * * * *"
-    #- cron: "0 7 * * 1"
+    - cron: "0 7 * * 1"
+    #- cron: "*/5 * * * *"
   
 # Test: om de 5 minuten draaien
 #on:
